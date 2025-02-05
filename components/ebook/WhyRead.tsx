@@ -24,6 +24,8 @@ export default function WhyRead() {
             POR QUE LER O <br /> EBOOK MENTALIDADE IMERSIVA?
           </h2>
 
+          <div className="w-16 h-1 bg-red-500 mt-3"></div>
+
           <ul className="mt-6 space-y-4">
             {[
               {

@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqs = [
   {
@@ -40,19 +41,39 @@ const faqs = [
 ];
 
 export default function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <section id="faq" className="w-full bg-[#10141a] py-20 px-8 md:px-16">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-white text-3xl md:text-4xl font-bold text-center uppercase">
-          PERGUNTAS FREQUENTES
+          Perguntas Frequentes
         </h2>
-        <div className="mt-8 space-y-6">
+        <div className="w-16 h-1 bg-red-500 mx-auto mt-3"></div>
+
+        <div className="mt-8 space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index}>
-              <h3 className="text-white text-lg font-semibold">
+            <div key={index} className="bg-[#1a1f29] p-4 rounded-lg shadow-lg">
+              <div
+                onClick={() => toggleFAQ(index)}
+                className="flex items-center justify-between w-full text-left text-white text-lg font-semibold focus:outline-none"
+              >
                 {faq.question}
-              </h3>
-              <p className="text-gray-300 mt-2">{faq.answer}</p>
+                {openIndex === index ? (
+                  <ChevronUp size={20} />
+                ) : (
+                  <ChevronDown size={20} />
+                )}
+              </div>
+              {openIndex === index && (
+                <p className="text-gray-300 mt-2 transition-opacity duration-300 ease-in-out">
+                  {faq.answer}
+                </p>
+              )}
             </div>
           ))}
         </div>

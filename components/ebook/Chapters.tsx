@@ -1,73 +1,113 @@
 "use client";
 import React from "react";
+import {
+  BookOpen,
+  Brain,
+  Lightbulb,
+  Target,
+  CheckCircle,
+  Rocket,
+  Heart,
+  LucideIcon,
+} from "lucide-react";
 
-export default function Chapters() {
+// 🔹 Tipo para os marcos da linha do tempo
+type Milestone = {
+  id: number;
+  date: string;
+  title: string;
+  icon: LucideIcon;
+  color: string;
+};
+
+// 🔹 Dados da linha do tempo
+const timelineData: Milestone[] = [
+  {
+    id: 1,
+    date: "Introdução",
+    title: "Visão geral sobre vícios",
+    icon: BookOpen,
+    color: "bg-[#10141a]",
+  },
+  {
+    id: 2,
+    date: "Capítulo 1",
+    title: "A Verdade Chocante",
+    icon: Brain,
+    color: "bg-[#10141a]",
+  },
+  {
+    id: 3,
+    date: "Capítulo 2",
+    title: "O Maior Erro",
+    icon: Lightbulb,
+    color: "bg-[#10141a]",
+  },
+  {
+    id: 4,
+    date: "Capítulo 3",
+    title: "Descoberta Científica",
+    icon: Target,
+    color: "bg-[#10141a]",
+  },
+  {
+    id: 5,
+    date: "Capítulo 4",
+    title: "O Método Reset",
+    icon: CheckCircle,
+    color: "bg-[#10141a]",
+  },
+  {
+    id: 6,
+    date: "Capítulo 5",
+    title: "Sua Jornada",
+    icon: Rocket,
+    color: "bg-[#10141a]",
+  },
+  {
+    id: 7,
+    date: "Capítulo 6",
+    title: "Conclusão",
+    icon: Heart,
+    color: "bg-[#10141a]",
+  },
+];
+
+export default function Timeline() {
   return (
-    <section id="capitulos" className="w-full bg-[#10141a] py-20 px-8 md:px-16">
-      <div className="max-w-6xl mx-auto text-center">
-        {/* 🔥 Título da Seção */}
-        <h2 className="text-3xl md:text-4xl font-bold uppercase text-white">
-          O QUE VOCÊ VAI APRENDER NO <br /> EBOOK MENTALIDADE IMERSIVA?
-        </h2>
-        <div className="w-20 h-1 bg-red-500 mx-auto mt-3"></div>
+    <div className="container mx-auto px-4 py-10 max-w-4xl">
+      <h2 className="text-2xl font-bold text-center text-white uppercase leading-tight">
+        O QUE VOCÊ VAI APRENDER NO EBOOK?
+      </h2>
+      {/* Linha */}
+      <div className="w-16 h-1 bg-red-500 mx-auto mt-3"></div>
 
-        {/* 🔥 Lista de Capítulos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-          {[
-            {
-              title: "Introdução",
-              description:
-                "Uma visão geral sobre os vícios e o impacto no seu comportamento.",
-            },
-            {
-              title:
-                "Capítulo 1 - A Verdade Chocante Sobre Por Que Você Não Consegue Parar",
-              description:
-                "Descubra os principais fatores do vício, os impactos neurológicos e por que métodos comuns falham.",
-            },
-            {
-              title:
-                "Capítulo 2 - O Maior Erro Que 97% das Pessoas Cometem ao Tentar Superar o Vício",
-              description:
-                "Entenda o erro fundamental na abordagem tradicional, o papel das emoções e como reprogramar sua mente.",
-            },
-            {
-              title:
-                "Capítulo 3 - A Descoberta Científica que Muda Tudo Sobre Recuperação",
-              description:
-                "Fundamentos da neuroplasticidade e as evidências científicas que sustentam o Método Reset.",
-            },
-            {
-              title:
-                "Capítulo 4 - O Método Reset: O Sistema Completo de Libertação em 90 Dias",
-              description:
-                "Uma visão detalhada do método, ferramentas essenciais e protocolos de emergência.",
-            },
-            {
-              title: "Capítulo 5 - Sua Jornada de Transformação Começa Agora",
-              description:
-                "Resumo dos principais ensinamentos, plano de ação e próximos passos para sua transformação.",
-            },
-            {
-              title: "Capítulo 6 - Conclusão e Agradecimentos",
-              description:
-                "Reflexões finais, principais aprendizados e como seguir adiante após o ebook.",
-            },
-          ].map((chapter, index) => (
-            <div
-              key={index}
-              className="bg-[#13171f] rounded-lg p-6 flex flex-col justify-center items-center text-center shadow-lg border border-[#1c1f27]"
-            >
-              <div className="flex items-center justify-center">
-                <h3 className="text-base font-semibold text-white ml-3">
-                  {chapter.title}
-                </h3>
-              </div>
-              <p className="text-gray-300 mt-3">{chapter.description}</p>
+      {/* Linha do tempo */}
+      <div className="relative wrap overflow-hidden p-4">
+        <div className="absolute border-l-2 border-gray-700 h-full left-1/2 transform -translate-x-1/2"></div>
+
+        {timelineData.map((milestone, index) => (
+          <div
+            key={milestone.id}
+            className={`mb-2 flex justify-between items-center w-full ${
+              index % 2 === 0 ? "flex-row-reverse" : "flex-row"
+            }`}
+          >
+            <div className="w-5/12"></div>
+            <div className="z-20 flex items-center bg-gray-800 shadow-lg w-8 h-8 rounded-full min-w-fit p-2">
+              <span className="font-semibold text-sm text-white p-1">
+                {milestone.date}
+              </span>
             </div>
-          ))}
-        </div>
+            <div
+              className={`w-5/12 p-4 rounded-lg shadow-lg ${milestone.color} text-white flex gap-3 items-center transition-transform duration-200 hover:scale-105`}
+            >
+              <milestone.icon className="text-2xl" />
+              <h3 className="font-semibold text-sm">{milestone.title}</h3>
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }
