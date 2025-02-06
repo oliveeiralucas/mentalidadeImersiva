@@ -16,7 +16,7 @@ export default function HeroSection() {
       {/* 🔥 Imagem de fundo escura */}
       <div className="absolute inset-0">
         <Image
-          src="/hero-bg.jfif" // Atualize para a imagem de fundo real
+          src="/hero-bg.jpg" // Atualize para a imagem de fundo real
           alt="Background"
           layout="fill"
           objectFit="cover"

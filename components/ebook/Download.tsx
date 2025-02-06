@@ -12,7 +12,7 @@ export default function Download() {
       {/* 🔥 Imagem de Fundo */}
       <div className="absolute inset-0">
         <Image
-          src="/download-bg.jfif" // Atualize para a imagem correta
+          src="/download-bg.jpg" // Atualize para a imagem correta
           alt="Background"
           layout="fill"
           objectFit="cover"
@@ -26,7 +26,8 @@ export default function Download() {
           Baixe Agora o eBook
         </h2>
         <p className="text-gray-300 mt-6 text-xl max-w-2xl mx-auto leading-relaxed">
-          Você está a um <span className="text-[#ff3437] font-bold">clique</span> de
+          Você está a um{" "}
+          <span className="text-[#ff3437] font-bold">clique</span> de
           transformar sua mentalidade e alcançar seus objetivos. Baixe o eBook
           gratuitamente e inicie sua jornada agora!
         </p>
