@@ -94,13 +94,13 @@ export default function Timeline() {
             }`}
           >
             <div className="w-5/12"></div>
-            <div className="z-20 flex items-center bg-gray-800 shadow-lg w-8 h-8 rounded-full min-w-fit p-2">
+            <div className="z-20 flex items-center bg-gray-800 shadow-lg w-8 h-8 rounded-full min-w-fit p-2 m-2">
               <span className="font-semibold text-sm text-white p-1">
                 {milestone.date}
               </span>
             </div>
             <div
-              className={`w-5/12 p-4 rounded-lg shadow-lg ${milestone.color} text-white flex gap-3 items-center transition-transform duration-200 hover:scale-105`}
+              className={`w-5/12 p-4 rounded-lg justify-center text-center shadow-lg ${milestone.color} text-white flex flex-col md:flex-row gap-3 items-center transition-transform duration-200 hover:scale-105`}
             >
               <milestone.icon className="text-2xl" />
               <h3 className="font-semibold text-sm">{milestone.title}</h3>

@@ -14,7 +14,7 @@ export default function OfferSection() {
       <div className="w-16 h-1 bg-red-500 mx-auto mt-2 mb-6"></div>
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between">
         {/* 🔥 Imagem da Oferta */}
-        <div className="hidden md:flex justify-end">
+        <div className="md:flex justify-end">
           <Image
             src="/offer-image.png"
             alt="Oferta Especial"

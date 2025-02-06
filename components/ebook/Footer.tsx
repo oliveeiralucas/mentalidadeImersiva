@@ -4,10 +4,10 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#10141a] text-[#dcdcdc] py-20 px-10">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start">
+    <footer className="w-full bg-[#10141a] text-[#dcdcdc] py-20 px-6 sm:px-10">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left space-y-10 md:space-y-0">
         {/* Logo e descrição */}
-        <div className="w-full md:w-1/3 text-center md:text-left">
+        <div className="w-full md:w-1/3 flex flex-col items-center md:items-start">
           <Image
             src="/logo.jpg"
             alt="Mentalidade Imersiva"
@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
 
         {/* Menu de navegação */}
-        <div className="w-full md:w-1/3 text-center md:text-left mt-10 md:mt-0">
+        <div className="w-full md:w-1/3">
           <h3 className="text-lg font-normal text-white mb-4">Navegação</h3>
           <ul className="space-y-2">
             <li>
@@ -36,17 +36,26 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="#conteudo" className="text-[#ff476a] hover:text-[#ff6668]">
+              <Link
+                href="#conteudo"
+                className="text-[#ff476a] hover:text-[#ff6668]"
+              >
                 O que você vai aprender
               </Link>
             </li>
             <li>
-              <Link href="#capitulos" className="text-[#ff476a] hover:text-[#ff6668]">
+              <Link
+                href="#capitulos"
+                className="text-[#ff476a] hover:text-[#ff6668]"
+              >
                 Capítulos
               </Link>
             </li>
             <li>
-              <Link href="#oferta" className="text-[#ff476a] hover:text-[#ff6668]">
+              <Link
+                href="#oferta"
+                className="text-[#ff476a] hover:text-[#ff6668]"
+              >
                 Oferta Especial
               </Link>
             </li>
@@ -59,11 +68,14 @@ export default function Footer() {
         </div>
 
         {/* Contato */}
-        <div className="w-full md:w-1/3 text-center md:text-left mt-10 md:mt-0">
+        <div className="w-full md:w-1/3">
           <h3 className="text-lg font-normal text-white mb-4">Contato</h3>
-          <p className="">
-            Email: {" "}
-            <a href="mailto:mentalidadeimersiva@gmail.com" className="text-[#ff476a] hover:text-[#ff6668]">
+          <p>
+            Email:{" "}
+            <a
+              href="mailto:mentalidadeimersiva@gmail.com"
+              className="text-[#ff476a] hover:text-[#ff6668]"
+            >
               mentalidadeimersiva@gmail.com
             </a>
           </p>

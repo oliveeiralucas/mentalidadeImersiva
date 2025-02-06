@@ -1,14 +1,17 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
 export default function HeroSection() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <section className="relative w-full h-screen bg-black">
+    <section className="relative w-full h-screen bg-black space-y-6 md:space-y-0">
       {/* 🔥 Banner de alerta no topo (agora sobre o menu) */}
-      <div className="absolute top-0 left-0 w-full bg-black text-center py-2 text-sm text-white z-20">
+      <div className="absolute top-0 left-0 w-full bg-black text-center py-2 text-sm text-white z-20 mb-4">
         ⚠️ <span className="text-red-500 font-bold">Oferta limitada:</span>{" "}
         Baixe o eBook gratuitamente antes que saia do ar!
       </div>
@@ -32,6 +35,8 @@ export default function HeroSection() {
             Mentalidade Imersiva
           </span>
         </div>
+
+        {/* Menu Desktop */}
         <ul className="hidden md:flex space-x-6 text-white uppercase text-sm font-medium">
           <li>
             <Link href="#sobre" className="hover:text-red-500">
@@ -59,10 +64,67 @@ export default function HeroSection() {
             </Link>
           </li>
         </ul>
-        <Button className="bg-[#ff3437] hover:bg-[#e02a2c] px-6 py-2 text-white uppercase font-bold">
+
+        {/* Botão Mobile */}
+        <div className="md:hidden">
+          <button onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? (
+              <X className="text-white" size={20} />
+            ) : (
+              <Menu className="text-white" size={20} />
+            )}
+          </button>
+        </div>
+
+        {/* Botão CTA */}
+        <Button className="hidden md:block bg-[#ff3437] hover:bg-[#e02a2c] px-6 py-2 text-white uppercase font-bold">
           Baixar eBook
         </Button>
       </nav>
+
+      {/* Menu Mobile */}
+      {menuOpen && (
+        <div className="absolute top-28 left-0 w-full bg-black text-white flex flex-col items-center py-6 space-y-4 z-50">
+          <Link
+            href="#sobre"
+            className="hover:text-red-500"
+            onClick={() => setMenuOpen(false)}
+          >
+            Sobre
+          </Link>
+          <Link
+            href="#conteudo"
+            className="hover:text-red-500"
+            onClick={() => setMenuOpen(false)}
+          >
+            Conteúdo
+          </Link>
+          <Link
+            href="#capitulos"
+            className="hover:text-red-500"
+            onClick={() => setMenuOpen(false)}
+          >
+            Capítulos
+          </Link>
+          <Link
+            href="#oferta"
+            className="hover:text-red-500"
+            onClick={() => setMenuOpen(false)}
+          >
+            Oferta
+          </Link>
+          <Link
+            href="#faq"
+            className="hover:text-red-500"
+            onClick={() => setMenuOpen(false)}
+          >
+            FAQ
+          </Link>
+          <Button className="bg-[#ff3437] hover:bg-[#e02a2c] px-6 py-2 text-white uppercase font-bold">
+            Baixar eBook
+          </Button>
+        </div>
+      )}
 
       {/* 🔥 Conteúdo Central */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">

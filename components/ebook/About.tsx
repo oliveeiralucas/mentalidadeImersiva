@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section id="sobre" className="w-full bg-[#10141a] pb-20 pt-36 px-8 md:px-16">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+    <section id="sobre" className="w-full bg-[#10141a] md:pb-20 pt-36 px-6 sm:px-8 md:px-16">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center text-center md:text-left">
         {/* 🔥 Imagem com bordas arredondadas */}
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
@@ -13,17 +13,17 @@ export default function AboutSection() {
             alt="Sobre a Mentalidade Imersiva"
             width={500}
             height={300}
-            className="rounded-lg shadow-lg"
+            className="rounded-lg shadow-lg max-w-full h-auto"
           />
         </div>
 
         {/* 🔥 Texto ao lado da imagem */}
         <div className="w-full md:w-1/2 mt-10 md:mt-0 md:pl-12 text-white">
-          <h2 className="text-3xl md:text-4xl font-bold uppercase">
+          <h2 className="text-3xl sm:text-4xl font-bold uppercase">
             MENTALIDADE IMERSIVA
           </h2>
 
-          <div className="w-16 h-1 bg-red-500 mb-3 mt-1"></div>
+          <div className="w-16 h-1 bg-red-500 mb-3 mt-1 mx-auto md:mx-0"></div>
 
           <p className="text-gray-300 mt-4 leading-relaxed">
             A <strong className="text-white">Mentalidade Imersiva</strong> é um
